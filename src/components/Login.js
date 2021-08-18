@@ -22,7 +22,7 @@ const getReturnedParamsFromSpotifyAuth = (hash) => {
     return paramsSplitUp;
 }
 
-export default function Login({ setLoggedIn }){
+export default function Login({ setLoggedIn, setToken }){
     React.useEffect(() => {
         if(window.location.hash){
             const { access_token, expires, token_type } = getReturnedParamsFromSpotifyAuth(window.location.hash)
@@ -31,6 +31,8 @@ export default function Login({ setLoggedIn }){
             localStorage.setItem("expires", expires)
             localStorage.setItem("tokenType", token_type)
             setLoggedIn(true)
+
+            setToken(access_token)
         }
     })
 

@@ -1,14 +1,14 @@
 import React from 'react'
 import TrackCard from './TrackCard'
 
-export default function TrackGrid({ tracks }){
+export default function TrackGrid({ tracks, setCurrentTrack, setTracks }){
     return(
         <React.Fragment>
             <ul>
-                {tracks.map((track, index) => {
+                {tracks.map((track) => {
                     return(
                         <li key={track.id}>
-                            <TrackCard img={track.album.images[1].url} trackName={track.name}/>
+                            <TrackCard setCurrentTrack={setCurrentTrack} setTracks={setTracks} img={track.album.images[1].url} track={track}/>
                         </li>
                     )
                 })}

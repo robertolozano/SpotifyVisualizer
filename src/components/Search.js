@@ -1,12 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-const PLAYLIST_ENDPOINT = 'https://api.spotify.com/v1/me/playlists'
-const PLAYLIST_ENDPOINT2 = "https://api.spotify.com/v1/users/me/playlists"
-
-const WOOZY_URL = "https://api.spotify.com/v1/search?q=habit&type=track"
-
-export default function Search({ setTracks }){
+export default function Search({ setTracks, }){
     const [token, setToken] = React.useState('')
     const [searchTerm, setSearchTerm] = React.useState('')
 
@@ -39,11 +34,6 @@ export default function Search({ setTracks }){
 
     return(
         <React.Fragment>
-            {/* <input></input>
-            <input></input>
-            <button onClick={handleSearch}>Search</button> */}
-
-
             <form onSubmit={handleSearch}>
                 <label htmlFor='searchTerm'>
                     Search
