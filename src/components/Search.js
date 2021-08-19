@@ -1,19 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 
-export default function Search({ setTracks, }){
-    const [token, setToken] = React.useState('')
+export default function Search({ setTracks, setToken, setCurrentTrack, setLoggedIn, token }){
     const [searchTerm, setSearchTerm] = React.useState('')
 
     const handleChange = (e) => {
         setSearchTerm(e.target.value)
     }
-
-    React.useEffect(() => {
-        if(localStorage.getItem("accessToken")){
-            setToken(localStorage.getItem("accessToken"))
-        }
-    },[])
 
     const handleSearch = () => {
         axios.get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`,{
@@ -29,34 +22,43 @@ export default function Search({ setTracks, }){
             setTracks(res.data.tracks.items)
         }).catch((error) => {
             console.log(error)
+            console.log("new")
+            setTracks(null)
+            setToken('')
+            setCurrentTrack(null)
+            setLoggedIn(false)
+            console.log("set logged in to false")
         })
     }
 
     return(
-        <React.Fragment>
-            <form onSubmit={handleSearch}>
+        <div className="row justify-start jost search">
+            <form onSubmit={handleSearch} className="search-form">
                 <label htmlFor='searchTerm'>
-                    Search
+                    🔎
                 </label>
                 <div>
                     <input
                         type='text'
                         id='search'
-                        placeholder='Search Track'
+                        placeholder='Track Name / Artist Name / Album Name'
                         autoComplete='off'
                         value={searchTerm}
                         onChange={handleChange}
+                        className="jost"
+                        className="search-input"
                     >
                     </input>
 
                     <button
                         type='submit'
                         disabled={!searchTerm}
+                        className="jost search-btn"
                     >
-                        Submit
+                        Search
                     </button>
                 </div>
             </form>
-        </React.Fragment>
+        </div>
     )
 }

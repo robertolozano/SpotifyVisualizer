@@ -26,23 +26,31 @@ export default function Login({ setLoggedIn, setToken }){
     React.useEffect(() => {
         if(window.location.hash){
             const { access_token, expires, token_type } = getReturnedParamsFromSpotifyAuth(window.location.hash)
-            localStorage.clear();
-            localStorage.setItem("accessToken", access_token)
-            localStorage.setItem("expires", expires)
-            localStorage.setItem("tokenType", token_type)
-            setLoggedIn(true)
 
-            setToken(access_token)
+            axios.get(`https://api.spotify.com/v1/search?q=habit&type=track`,{
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + access_token,
+                },
+            }).then((res) => {
+                console.log("logged in")
+                console.log(res)
+                setLoggedIn(true)
+                setToken(access_token)
+            }).catch((error) => {
+                console.log("error logging in", error)
+            })
         }
-    })
+    },[])
 
     return(
         <div className="row justify-content-center">
-            <div>
-                <a href={AUTH_URL} className="login-button center">
+            <a href={AUTH_URL}>
+                <button className="login-button center">
                     Login
-                </a>
-            </div>
+                </button>
+            </a>
         </div>
     )
     

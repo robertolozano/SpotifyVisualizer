@@ -24,11 +24,14 @@ export default function MusicPlayer({ currentTrack, token }){
 
     return(
         <React.Fragment>
-            <SpotifyPlayer
-                token={token}
-                showSaveIcon
-                uris={currentTrack.uri ? [currentTrack.uri] : []}
-            />
+            <div style={{width: "100%"}}>
+                <SpotifyPlayer
+                    styles={{bgColor: 'white'}}
+                    token={token}
+                    showSaveIcon
+                    uris={currentTrack.uri ? [currentTrack.uri] : []}
+                />
+            </div>
         </React.Fragment>
     )
 }

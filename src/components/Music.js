@@ -10,12 +10,11 @@ export default function Music (){
     const [currentTrack, setCurrentTrack] = React.useState(null)
     const [token, setToken] = React.useState('')
 
-
     return(
-        <React.Fragment>
-            {loggedIn === true ?  <Search setTracks={setTracks}/> : <Login setLoggedIn={setLoggedIn} setToken={setToken}/>}
+        <div className="music">
+            {loggedIn === true ?  <Search setTracks={setTracks} setLoggedIn={setLoggedIn} setToken={setToken} setCurrentTrack={setCurrentTrack} token={token}/> : <Login setLoggedIn={setLoggedIn} setToken={setToken}/>}
             {tracks && <TrackGrid tracks={tracks} setCurrentTrack={setCurrentTrack} setTracks={setTracks}/>}
             {currentTrack && <MusicPlayer currentTrack={currentTrack} token={token}/>}
-        </React.Fragment>
+        </div>
     )
 }

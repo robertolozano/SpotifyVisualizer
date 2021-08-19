@@ -1,7 +1,7 @@
 import React from 'react'
 import useHover from '../hooks/useHover'
 
-export default function TrackCard( { img, track, setCurrentTrack, setTracks } ){
+export default function TrackCard( { img, track, setCurrentTrack, setTracks, index } ){
     const [ hovering, attrs ] = useHover()
 
     const selectTrack = (trackName) => {
@@ -12,12 +12,12 @@ export default function TrackCard( { img, track, setCurrentTrack, setTracks } ){
 
     return(
         <React.Fragment>
-            <div style={{display: 'flex', border:'2px solid black', backgroundColor: `${hovering === true ?  '#abb7c9' : 'white'}`}} 
+            <div className="trackcard" style={{backgroundColor: `${hovering === true ?  'grey' : '#2c2c2c'}`, animationDelay:`${index * 0.1}s`}} 
                 onClick={()=>selectTrack(track)}
                 {...attrs} 
             >
-                <img src={img}></img>
-                <p>{track.name}</p>
+                <img src={img} style={{height: 'auto', width: '100%'}}></img>
+                <p style={{padding: '10px 0px'}}>{track.name}</p>
             </div>
         </React.Fragment>
     )
