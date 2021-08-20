@@ -1,14 +1,14 @@
 @keyframes track-card-appearing {
   0%{ opacity: 0; transform: translate(0px, 300px);}
-  99%{ opacity: 100%; transform: translate(0px, 0px);}
-  100%{ opacity: 100%; transform: translate(0px, 0px);}
+  99%{ opacity: 1; transform: translate(0px, 0px);}
+  100%{ opacity: 1; transform: translate(0px, 0px);}
 
 }
 
 @-webkit-keyframes track-card-appearing {
   0%{ opacity: 0; transform: translate(0px, 300px);}
-  99%{ opacity: 100%; transform: translate(0px, 0px);}
-  100%{ opacity: 100%; transform: translate(0px, 0px);}
+  99%{ opacity: 1; transform: translate(0px, 0px);}
+  100%{ opacity: 1; transform: translate(0px, 0px);}
 }
 
 
@@ -199,7 +199,7 @@ body{
   animation-duration: 0.9s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;  
-  opacity: 0%;
+  opacity: 0;
   background-color: #000000;
   font-size: 20px;
   font-family: 'Jost', sans-serif;
