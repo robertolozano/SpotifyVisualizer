@@ -6,14 +6,14 @@ import Search from './Search'
 const SPOTIFY_AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
 const CLIENT_ID = 'ee66c8136e154c84a43dbdb8961f7d63'
 let REDIRECT_URL = "https://wavify.netlify.app/"
-const SCOPES = ["user-read-currently-playing", "user-read-playback-state", "streaming", "user-read-email", "user-read-email", "user-read-private", "user-library-read", "user-library-modify", "user-read-playback-state", "user-modify-playback-state", "playlist-read-private", "playlist-read-collaborative"]
-const SCOPES_URL_PARAM = SCOPES.join("%20")
-const AUTH_URL = `${SPOTIFY_AUTH_ENDPOINT}?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${REDIRECT_URL}&scope=${SCOPES_URL_PARAM}&show_dialog=true`
-
 if(window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"){
     console.log("It's a local server!", window.location.hostname);
     REDIRECT_URL = "http://localhost:3000"
 }
+const SCOPES = ["user-read-currently-playing", "user-read-playback-state", "streaming", "user-read-email", "user-read-email", "user-read-private", "user-library-read", "user-library-modify", "user-read-playback-state", "user-modify-playback-state", "playlist-read-private", "playlist-read-collaborative"]
+const SCOPES_URL_PARAM = SCOPES.join("%20")
+const AUTH_URL = `${SPOTIFY_AUTH_ENDPOINT}?client_id=${CLIENT_ID}&response_type=token&redirect_uri=${REDIRECT_URL}&scope=${SCOPES_URL_PARAM}&show_dialog=true`
+
 
 const getReturnedParamsFromSpotifyAuth = (hash) => {
     const StringAfterHashtag = hash.substring(1);
