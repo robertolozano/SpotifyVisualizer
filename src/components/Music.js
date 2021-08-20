@@ -6,13 +6,15 @@ import MusicPlayer from './MusicPlayer'
 
 export default function Music (){
     const [loggedIn, setLoggedIn] = React.useState(false)
-    const [tracks, setTracks] = React.useState(null)
-    const [currentTrack, setCurrentTrack] = React.useState(null)
+    const [tracks, setTracks] = React.useState('')
+    const [currentTrack, setCurrentTrack] = React.useState('')
     const [token, setToken] = React.useState('')
 
     return(
         <div className="music">
-            {loggedIn === true ?  <Search setTracks={setTracks} setLoggedIn={setLoggedIn} setToken={setToken} setCurrentTrack={setCurrentTrack} token={token}/> : <Login setLoggedIn={setLoggedIn} setToken={setToken}/>}
+            {loggedIn === true ?  
+                <Search setTracks={setTracks} setLoggedIn={setLoggedIn} setToken={setToken} setCurrentTrack={setCurrentTrack} token={token}/> 
+                : <Login setLoggedIn={setLoggedIn} setToken={setToken}/>}
             {tracks && <TrackGrid tracks={tracks} setCurrentTrack={setCurrentTrack} setTracks={setTracks}/>}
             {currentTrack && <MusicPlayer currentTrack={currentTrack} token={token}/>}
         </div>

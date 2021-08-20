@@ -17,7 +17,7 @@ export default function TrackCard( { img, track, setCurrentTrack, setTracks, ind
                 {...attrs} 
             >
                 <img src={img} style={{height: 'auto', width: '100%'}}></img>
-                <p style={{padding: '10px 0px'}}>{track.name}</p>
+                <p style={{padding: '10px 0px', height: '25px', textAlign: 'center', overflow: 'hidden'}}>{track.name}</p>
             </div>
         </React.Fragment>
     )

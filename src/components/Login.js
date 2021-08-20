@@ -36,8 +36,8 @@ export default function Login({ setLoggedIn, setToken }){
             }).then((res) => {
                 console.log("logged in")
                 console.log(res)
-                setLoggedIn(true)
                 setToken(access_token)
+                setLoggedIn(true)
             }).catch((error) => {
                 console.log("error logging in", error)
             })

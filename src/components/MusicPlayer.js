@@ -24,11 +24,12 @@ export default function MusicPlayer({ currentTrack, token }){
 
     return(
         <React.Fragment>
-            <div style={{width: "100%"}}>
+            <div style={{width: "100%"}} className="musicPlayerBackground">
                 <SpotifyPlayer
-                    styles={{bgColor: 'white'}}
+                    styles={{bgColor: 'transparent', color: 'white', trackNameColor: 'white', sliderColor: 'rgb(62, 211, 156)', sliderHandleColor: 'white', trackArtistColor: 'white', height: '100px'}}
                     token={token}
                     showSaveIcon
+                    autoPlay={true}
                     uris={currentTrack.uri ? [currentTrack.uri] : []}
                 />
             </div>

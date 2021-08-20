@@ -8,7 +8,12 @@ export default function Search({ setTracks, setToken, setCurrentTrack, setLogged
         setSearchTerm(e.target.value)
     }
 
-    const handleSearch = () => {
+    const handleSearch = (e) => {
+        e.preventDefault()
+
+
+        console.log("token is ", token)
+
         axios.get(`https://api.spotify.com/v1/search?q=${searchTerm}&type=track`,{
             headers: {
                 Accept: 'application/json',
@@ -22,7 +27,6 @@ export default function Search({ setTracks, setToken, setCurrentTrack, setLogged
             setTracks(res.data.tracks.items)
         }).catch((error) => {
             console.log(error)
-            console.log("new")
             setTracks(null)
             setToken('')
             setCurrentTrack(null)
