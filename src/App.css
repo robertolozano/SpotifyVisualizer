@@ -1,3 +1,10 @@
+@keyframes track-card-appearing {
+  0%{ opacity: 0; transform: translate(0px, 300px);}
+  100%{ opacity: 100%; transform: translate(0px, 0px);}
+}
+
+
+
 /* Reset CSS */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -188,12 +195,6 @@ body{
   color: white;
   cursor: pointer;
 }
-
-@keyframes track-card-appearing {
-  0%{ opacity: 0; transform: translate(0px, 300px);}
-  100%{ opacity: 100%; transform: translate(0px, 0px);}
-}
-
 
 .trackgrid{
   /* align-content: flex-start; */
