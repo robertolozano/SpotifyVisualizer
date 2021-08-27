@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# this one always ruins me (Mark Khoo)
+package-lock.json
